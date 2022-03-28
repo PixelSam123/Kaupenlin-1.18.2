@@ -1,11 +1,8 @@
-# Fabric Kotlin Template
+# Kaupenlin-1.18.2
 
-This is a more up-to-date Fabric Example Mod with Kotlin support. With neater Gradle DSL written in Kotlin!  
-More changes coming as I learn Kotlin.
+Kaupenjoe's 1.18.1-1.18.2 Fabric Tutorial, but in Kotlin
 
 ---
-
-## Original README.md from FabricMC:
 
 ## Setup
 
@@ -13,4 +10,4 @@ For setup instructions please see the [fabric wiki page](https://fabricmc.net/wi
 
 ## License
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+Follows the license used in Kaupen's tutorial, so MIT License.

@@ -1,6 +1,6 @@
-package net.fabricmc.example.mixin
+package net.kaupenjoe.tutorialmod.mixin
 
-import net.fabricmc.example.ExampleMod
+import net.kaupenjoe.tutorialmod.TutorialMod
 import net.minecraft.client.gui.screen.TitleScreen
 import org.spongepowered.asm.mixin.Mixin
 import org.spongepowered.asm.mixin.injection.At
@@ -11,6 +11,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo
 class ExampleMixin {
     @Inject(at = [At("HEAD")], method = ["init()V"])
     private fun init(info: CallbackInfo) {
-        ExampleMod.LOGGER.info("This line is printed by an example mod mixin!")
+        TutorialMod.LOGGER.info("This line is printed by an example mod mixin!")
     }
 }
