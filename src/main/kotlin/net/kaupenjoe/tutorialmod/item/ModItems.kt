@@ -2,6 +2,7 @@ package net.kaupenjoe.tutorialmod.item
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings
 import net.kaupenjoe.tutorialmod.TutorialMod
+import net.kaupenjoe.tutorialmod.item.custom.DowsingRodItem
 import net.minecraft.item.Item
 import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry
@@ -20,6 +21,11 @@ object ModItems {
     val RAW_MYTHRIL = registerItem(
         "raw_mythril",
         Item(FabricItemSettings().group(ModItemGroup.MYTHRIL))
+    )
+
+    val DOWSING_ROD = registerItem(
+        "dowsing_rod",
+        DowsingRodItem(FabricItemSettings().group(ModItemGroup.MYTHRIL).maxDamage(16))
     )
 
     private fun registerItem(name: String, item: Item): Item =
