@@ -33,6 +33,11 @@ object ModItems {
         Item(FabricItemSettings().group(ModItemGroup.MYTHRIL))
     )
 
+    val GRAPE = registerItem(
+        "grape",
+        Item(FabricItemSettings().group(ModItemGroup.MYTHRIL).food(ModFoodComponents.GRAPE))
+    )
+
     private fun registerItem(name: String, item: Item): Item =
         Registry.register(Registry.ITEM, Identifier(TutorialMod.MOD_ID, name), item)
 
