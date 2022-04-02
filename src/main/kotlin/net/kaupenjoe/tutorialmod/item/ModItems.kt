@@ -28,6 +28,11 @@ object ModItems {
         DowsingRodItem(FabricItemSettings().group(ModItemGroup.MYTHRIL).maxDamage(16))
     )
 
+    val LILAC_FLOWER_BULB = registerItem(
+        "lilac_flower_bulb",
+        Item(FabricItemSettings().group(ModItemGroup.MYTHRIL))
+    )
+
     private fun registerItem(name: String, item: Item): Item =
         Registry.register(Registry.ITEM, Identifier(TutorialMod.MOD_ID, name), item)
 

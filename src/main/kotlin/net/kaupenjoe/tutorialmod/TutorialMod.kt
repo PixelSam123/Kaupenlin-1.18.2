@@ -3,6 +3,7 @@ package net.kaupenjoe.tutorialmod
 import net.fabricmc.api.ModInitializer
 import net.kaupenjoe.tutorialmod.block.ModBlocks
 import net.kaupenjoe.tutorialmod.item.ModItems
+import net.kaupenjoe.tutorialmod.util.ModRegistries
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
@@ -15,5 +16,6 @@ class TutorialMod : ModInitializer {
     override fun onInitialize() {
         ModItems.registerModItems()
         ModBlocks.registerModBlocks()
+        ModRegistries.registerModStuffs()
     }
 }
