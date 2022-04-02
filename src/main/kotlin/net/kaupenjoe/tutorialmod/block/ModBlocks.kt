@@ -3,6 +3,7 @@ package net.kaupenjoe.tutorialmod.block
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings
 import net.kaupenjoe.tutorialmod.TutorialMod
+import net.kaupenjoe.tutorialmod.block.custom.SpeedyBlock
 import net.kaupenjoe.tutorialmod.item.ModItemGroup
 import net.minecraft.block.Block
 import net.minecraft.block.Material
@@ -36,6 +37,11 @@ object ModBlocks {
     val RAW_MYTHRIL_BLOCK = registerBlock(
         "raw_mythril_block",
         Block(FabricBlockSettings.of(Material.METAL).strength(4.0f).requiresTool()), ModItemGroup.MYTHRIL
+    )
+
+    val SPEEDY_BLOCK = registerBlock(
+        "speedy_block",
+        SpeedyBlock(FabricBlockSettings.of(Material.METAL).strength(4.0f).requiresTool()), ModItemGroup.MYTHRIL
     )
 
     private fun registerBlock(name: String, block: Block, group: ItemGroup): Block {
