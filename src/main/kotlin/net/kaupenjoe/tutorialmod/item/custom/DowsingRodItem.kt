@@ -1,7 +1,7 @@
 package net.kaupenjoe.tutorialmod.item.custom
 
+import net.kaupenjoe.tutorialmod.util.ModTags
 import net.minecraft.block.Block
-import net.minecraft.block.Blocks
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.item.TooltipContext
 import net.minecraft.entity.player.PlayerEntity
@@ -13,6 +13,7 @@ import net.minecraft.text.Text
 import net.minecraft.text.TranslatableText
 import net.minecraft.util.ActionResult
 import net.minecraft.util.math.BlockPos
+import net.minecraft.util.registry.Registry
 import net.minecraft.world.World
 
 class DowsingRodItem(settings: Settings) : Item(settings) {
@@ -38,8 +39,8 @@ class DowsingRodItem(settings: Settings) : Item(settings) {
                     player.sendMessage(TranslatableText("item.tutorialmod.dowsing_rod.no_valuables"), false)
                 }
 
-                context.stack.damage(1, player) {
-                    plyr -> plyr.sendToolBreakStatus(player.activeHand)
+                context.stack.damage(1, player) { plyr ->
+                    plyr.sendToolBreakStatus(player.activeHand)
                 }
             }
         }
@@ -67,11 +68,7 @@ class DowsingRodItem(settings: Settings) : Item(settings) {
         )
     }
 
-    private fun isValuableBlock(block: Block): Boolean = when (block) {
-        Blocks.COAL_ORE,
-        Blocks.COPPER_ORE,
-        Blocks.DIAMOND_ORE,
-        Blocks.IRON_ORE -> true
-        else -> false
-    }
+    private fun isValuableBlock(block: Block): Boolean =
+        Registry.BLOCK.getOrCreateEntry(Registry.BLOCK.getKey(block).get())
+            .isIn(ModTags.Blocks.DOWSING_ROD_DETECTABLE_BLOCKS)
 }
