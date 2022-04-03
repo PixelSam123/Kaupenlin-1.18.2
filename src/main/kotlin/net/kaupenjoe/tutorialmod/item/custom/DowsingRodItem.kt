@@ -2,13 +2,18 @@ package net.kaupenjoe.tutorialmod.item.custom
 
 import net.minecraft.block.Block
 import net.minecraft.block.Blocks
+import net.minecraft.client.gui.screen.Screen
+import net.minecraft.client.item.TooltipContext
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.Item
+import net.minecraft.item.ItemStack
 import net.minecraft.item.ItemUsageContext
 import net.minecraft.text.LiteralText
+import net.minecraft.text.Text
 import net.minecraft.text.TranslatableText
 import net.minecraft.util.ActionResult
 import net.minecraft.util.math.BlockPos
+import net.minecraft.world.World
 
 class DowsingRodItem(settings: Settings) : Item(settings) {
     override fun useOnBlock(context: ItemUsageContext): ActionResult {
@@ -40,6 +45,19 @@ class DowsingRodItem(settings: Settings) : Item(settings) {
         }
 
         return super.useOnBlock(context)
+    }
+
+    override fun appendTooltip(
+        stack: ItemStack,
+        world: World?,
+        tooltip: MutableList<Text>,
+        context: TooltipContext
+    ) {
+        if (Screen.hasShiftDown()) {
+            tooltip.add(TranslatableText("item.tutorialmod.dowsing_rod.tooltip.shift"))
+        } else {
+            tooltip.add(TranslatableText("item.tutorialmod.dowsing_rod.tooltip"))
+        }
     }
 
     private fun outputValuableCoordinates(blockPos: BlockPos, player: PlayerEntity, blockBelow: Block) {

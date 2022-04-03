@@ -7,16 +7,23 @@ import net.kaupenjoe.tutorialmod.block.custom.SpeedyBlock
 import net.kaupenjoe.tutorialmod.item.ModItemGroup
 import net.minecraft.block.Block
 import net.minecraft.block.Material
+import net.minecraft.client.item.TooltipContext
 import net.minecraft.item.BlockItem
 import net.minecraft.item.Item
 import net.minecraft.item.ItemGroup
+import net.minecraft.item.ItemStack
+import net.minecraft.text.Text
+import net.minecraft.text.TranslatableText
 import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry
+import net.minecraft.world.World
 
 object ModBlocks {
     val MYTHRIL_BLOCK = registerBlock(
         "mythril_block",
-        Block(FabricBlockSettings.of(Material.METAL).strength(6f).requiresTool()), ModItemGroup.MYTHRIL
+        Block(FabricBlockSettings.of(Material.METAL).strength(6f).requiresTool()),
+        ModItemGroup.MYTHRIL,
+        "tooltip.tutorialmod.mythril_block"
     )
 
     val MYTHRIL_ORE = registerBlock(
@@ -44,16 +51,33 @@ object ModBlocks {
         SpeedyBlock(FabricBlockSettings.of(Material.METAL).strength(4.0f).requiresTool()), ModItemGroup.MYTHRIL
     )
 
-    private fun registerBlock(name: String, block: Block, group: ItemGroup): Block {
-        registerBlockItem(name, block, group)
+    private fun registerBlock(name: String, block: Block, group: ItemGroup, tooltipKey: String = ""): Block {
+        registerBlockItem(name, block, group, tooltipKey)
         return Registry.register(Registry.BLOCK, Identifier(TutorialMod.MOD_ID, name), block)
     }
 
-    private fun registerBlockItem(name: String, block: Block, group: ItemGroup): Item = Registry.register(
-        Registry.ITEM,
-        Identifier(TutorialMod.MOD_ID, name),
-        BlockItem(block, FabricItemSettings().group(group))
-    )
+    private fun registerBlockItem(name: String, block: Block, group: ItemGroup, tooltipKey: String = ""): Item {
+        val itemSettings = FabricItemSettings().group(group)
+
+        return Registry.register(
+            Registry.ITEM,
+            Identifier(TutorialMod.MOD_ID, name),
+            if (tooltipKey == "") {
+                BlockItem(block, itemSettings)
+            } else {
+                object : BlockItem(block, itemSettings) {
+                    override fun appendTooltip(
+                        stack: ItemStack,
+                        world: World?,
+                        tooltip: MutableList<Text>,
+                        context: TooltipContext
+                    ) {
+                        tooltip.add(TranslatableText(tooltipKey))
+                    }
+                }
+            }
+        )
+    }
 
     fun registerModBlocks() {
         TutorialMod.LOGGER.info("Registering ModBlocks for ${TutorialMod.MOD_ID}")
