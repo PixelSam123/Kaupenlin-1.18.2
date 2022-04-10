@@ -6,7 +6,12 @@ import net.kaupenjoe.tutorialmod.TutorialMod
 import net.kaupenjoe.tutorialmod.block.custom.SpeedyBlock
 import net.kaupenjoe.tutorialmod.item.ModItemGroup
 import net.minecraft.block.Block
+import net.minecraft.block.FenceBlock
+import net.minecraft.block.FenceGateBlock
 import net.minecraft.block.Material
+import net.minecraft.block.PressurePlateBlock
+import net.minecraft.block.StoneButtonBlock
+import net.minecraft.block.WallBlock
 import net.minecraft.client.item.TooltipContext
 import net.minecraft.item.BlockItem
 import net.minecraft.item.Item
@@ -49,6 +54,39 @@ object ModBlocks {
     val SPEEDY_BLOCK = registerBlock(
         "speedy_block",
         SpeedyBlock(FabricBlockSettings.of(Material.METAL).strength(4.0f).requiresTool()), ModItemGroup.MYTHRIL
+    )
+
+    val MYTHRIL_BUTTON = registerBlock(
+        "mythril_button",
+        StoneButtonBlock(FabricBlockSettings.of(Material.METAL).strength(4.0f).requiresTool().noCollision()),
+        ModItemGroup.MYTHRIL
+    )
+
+    val MYTHRIL_PRESSURE_PLATE = registerBlock(
+        "mythril_pressure_plate",
+        PressurePlateBlock(
+            PressurePlateBlock.ActivationRule.EVERYTHING,
+            FabricBlockSettings.of(Material.METAL).strength(4.0f).requiresTool()
+        ),
+        ModItemGroup.MYTHRIL
+    )
+
+    val MYTHRIL_FENCE = registerBlock(
+        "mythril_fence",
+        FenceBlock(FabricBlockSettings.of(Material.METAL).strength(4.0f).requiresTool()),
+        ModItemGroup.MYTHRIL
+    )
+
+    val MYTHRIL_FENCE_GATE = registerBlock(
+        "mythril_fence_gate",
+        FenceGateBlock(FabricBlockSettings.of(Material.METAL).strength(4.0f).requiresTool()),
+        ModItemGroup.MYTHRIL
+    )
+
+    val MYTHRIL_WALL = registerBlock(
+        "mythril_wall",
+        WallBlock(FabricBlockSettings.of(Material.METAL).strength(4.0f).requiresTool()),
+        ModItemGroup.MYTHRIL
     )
 
     private fun registerBlock(name: String, block: Block, group: ItemGroup, tooltipKey: String = ""): Block {
