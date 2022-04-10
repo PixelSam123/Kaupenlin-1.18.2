@@ -6,11 +6,15 @@ import net.kaupenjoe.tutorialmod.TutorialMod
 import net.kaupenjoe.tutorialmod.block.custom.SpeedyBlock
 import net.kaupenjoe.tutorialmod.item.ModItemGroup
 import net.minecraft.block.Block
+import net.minecraft.block.DoorBlock
 import net.minecraft.block.FenceBlock
 import net.minecraft.block.FenceGateBlock
 import net.minecraft.block.Material
 import net.minecraft.block.PressurePlateBlock
+import net.minecraft.block.SlabBlock
+import net.minecraft.block.StairsBlock
 import net.minecraft.block.StoneButtonBlock
+import net.minecraft.block.TrapdoorBlock
 import net.minecraft.block.WallBlock
 import net.minecraft.client.item.TooltipContext
 import net.minecraft.item.BlockItem
@@ -86,6 +90,30 @@ object ModBlocks {
     val MYTHRIL_WALL = registerBlock(
         "mythril_wall",
         WallBlock(FabricBlockSettings.of(Material.METAL).strength(4.0f).requiresTool()),
+        ModItemGroup.MYTHRIL
+    )
+
+    val MYTHRIL_SLAB = registerBlock(
+        "mythril_slab",
+        SlabBlock(FabricBlockSettings.of(Material.METAL).strength(4.0f).requiresTool()),
+        ModItemGroup.MYTHRIL
+    )
+
+    val MYTHRIL_STAIRS = registerBlock(
+        "mythril_stairs",
+        StairsBlock(MYTHRIL_BLOCK.defaultState, FabricBlockSettings.of(Material.METAL).strength(4.0f).requiresTool()),
+        ModItemGroup.MYTHRIL
+    )
+
+    val KAUPEN_DOOR = registerBlock(
+        "kaupen_door",
+        DoorBlock(FabricBlockSettings.of(Material.WOOD).strength(4.0f).requiresTool().nonOpaque()),
+        ModItemGroup.MYTHRIL
+    )
+
+    val KAUPEN_TRAPDOOR = registerBlock(
+        "kaupen_trapdoor",
+        TrapdoorBlock(FabricBlockSettings.of(Material.WOOD).strength(4.0f).requiresTool().nonOpaque()),
         ModItemGroup.MYTHRIL
     )
 

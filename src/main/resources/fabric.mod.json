@@ -20,6 +20,12 @@
         "adapter": "kotlin",
         "value": "net.kaupenjoe.tutorialmod.TutorialMod"
       }
+    ],
+    "client": [
+      {
+        "adapter": "kotlin",
+        "value": "net.kaupenjoe.tutorialmod.TutorialClientMod"
+      }
     ]
   },
   "mixins": [
