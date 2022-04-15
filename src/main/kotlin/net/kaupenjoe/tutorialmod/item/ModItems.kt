@@ -3,6 +3,8 @@ package net.kaupenjoe.tutorialmod.item
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings
 import net.kaupenjoe.tutorialmod.TutorialMod
 import net.kaupenjoe.tutorialmod.item.custom.*
+import net.minecraft.entity.EquipmentSlot
+import net.minecraft.item.ArmorItem
 import net.minecraft.item.Item
 import net.minecraft.item.ShovelItem
 import net.minecraft.util.Identifier
@@ -71,6 +73,35 @@ object ModItems {
         "mythril_pickaxe",
         ModPickaxeItem(
             ModToolMaterials.MYTHRIL, 1, 0f,
+            FabricItemSettings().group(ModItemGroup.MYTHRIL)
+        )
+    )
+
+    val MYTHRIL_HELMET = registerItem(
+        "mythril_helmet",
+        ArmorItem(
+            ModArmorMaterials.MYTHRIL, EquipmentSlot.HEAD,
+            FabricItemSettings().group(ModItemGroup.MYTHRIL)
+        )
+    )
+    val MYTHRIL_CHESTPLATE = registerItem(
+        "mythril_chestplate",
+        ArmorItem(
+            ModArmorMaterials.MYTHRIL, EquipmentSlot.CHEST,
+            FabricItemSettings().group(ModItemGroup.MYTHRIL)
+        )
+    )
+    val MYTHRIL_LEGGINGS = registerItem(
+        "mythril_leggings",
+        ArmorItem(
+            ModArmorMaterials.MYTHRIL, EquipmentSlot.LEGS,
+            FabricItemSettings().group(ModItemGroup.MYTHRIL)
+        )
+    )
+    val MYTHRIL_BOOTS = registerItem(
+        "mythril_boots",
+        ArmorItem(
+            ModArmorMaterials.MYTHRIL, EquipmentSlot.FEET,
             FabricItemSettings().group(ModItemGroup.MYTHRIL)
         )
     )
