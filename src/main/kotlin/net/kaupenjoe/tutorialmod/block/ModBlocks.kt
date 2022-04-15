@@ -118,6 +118,18 @@ object ModBlocks {
         ModItemGroup.MYTHRIL
     )
 
+    val POTTED_LILAC_FLOWER = registerBlockWithoutBlockItem(
+        "potted_lilac_flower",
+        FlowerPotBlock(
+            LILAC_FLOWER,
+            FabricBlockSettings.copy(Blocks.POTTED_ALLIUM).nonOpaque()
+        )
+    )
+
+    private fun registerBlockWithoutBlockItem(name: String, block: Block): Block {
+        return Registry.register(Registry.BLOCK, Identifier(TutorialMod.MOD_ID, name), block)
+    }
+
     private fun registerBlock(name: String, block: Block, group: ItemGroup, tooltipKey: String = ""): Block {
         registerBlockItem(name, block, group, tooltipKey)
         return Registry.register(Registry.BLOCK, Identifier(TutorialMod.MOD_ID, name), block)
