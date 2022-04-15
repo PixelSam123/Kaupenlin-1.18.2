@@ -5,18 +5,9 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings
 import net.kaupenjoe.tutorialmod.TutorialMod
 import net.kaupenjoe.tutorialmod.block.custom.SpeedyBlock
 import net.kaupenjoe.tutorialmod.item.ModItemGroup
-import net.minecraft.block.Block
-import net.minecraft.block.DoorBlock
-import net.minecraft.block.FenceBlock
-import net.minecraft.block.FenceGateBlock
-import net.minecraft.block.Material
-import net.minecraft.block.PressurePlateBlock
-import net.minecraft.block.SlabBlock
-import net.minecraft.block.StairsBlock
-import net.minecraft.block.StoneButtonBlock
-import net.minecraft.block.TrapdoorBlock
-import net.minecraft.block.WallBlock
+import net.minecraft.block.*
 import net.minecraft.client.item.TooltipContext
+import net.minecraft.entity.effect.StatusEffects
 import net.minecraft.item.BlockItem
 import net.minecraft.item.Item
 import net.minecraft.item.ItemGroup
@@ -114,6 +105,16 @@ object ModBlocks {
     val KAUPEN_TRAPDOOR = registerBlock(
         "kaupen_trapdoor",
         TrapdoorBlock(FabricBlockSettings.of(Material.WOOD).strength(4.0f).requiresTool().nonOpaque()),
+        ModItemGroup.MYTHRIL
+    )
+
+    val LILAC_FLOWER = registerBlock(
+        "lilac_flower",
+        FlowerBlock(
+            StatusEffects.FIRE_RESISTANCE,
+            12,
+            FabricBlockSettings.copy(Blocks.DANDELION).strength(4.0f).nonOpaque()
+        ),
         ModItemGroup.MYTHRIL
     )
 
