@@ -2,13 +2,9 @@ package net.kaupenjoe.tutorialmod.item
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings
 import net.kaupenjoe.tutorialmod.TutorialMod
-import net.kaupenjoe.tutorialmod.item.custom.DowsingRodItem
-import net.kaupenjoe.tutorialmod.item.custom.ModAxeItem
-import net.kaupenjoe.tutorialmod.item.custom.ModHoeItem
-import net.kaupenjoe.tutorialmod.item.custom.ModPickaxeItem
+import net.kaupenjoe.tutorialmod.item.custom.*
 import net.minecraft.item.Item
 import net.minecraft.item.ShovelItem
-import net.minecraft.item.SwordItem
 import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry
 
@@ -45,7 +41,7 @@ object ModItems {
 
     val MYTHRIL_SWORD = registerItem(
         "mythril_sword",
-        SwordItem(
+        ModSlownessSwordItem(
             ModToolMaterials.MYTHRIL, 1, 2f,
             FabricItemSettings().group(ModItemGroup.MYTHRIL)
         )
