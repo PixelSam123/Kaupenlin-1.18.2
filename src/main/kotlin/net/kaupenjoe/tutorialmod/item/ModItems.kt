@@ -79,7 +79,7 @@ object ModItems {
 
     val MYTHRIL_HELMET = registerItem(
         "mythril_helmet",
-        ArmorItem(
+        ModArmorItem(
             ModArmorMaterials.MYTHRIL, EquipmentSlot.HEAD,
             FabricItemSettings().group(ModItemGroup.MYTHRIL)
         )
