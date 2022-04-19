@@ -106,6 +106,11 @@ object ModItems {
         )
     )
 
+    val MAGIC_MYTHRIL_DUST = registerItem(
+        "magic_mythril_dust",
+        Item(FabricItemSettings().group(ModItemGroup.MYTHRIL))
+    )
+
     private fun registerItem(name: String, item: Item): Item =
         Registry.register(Registry.ITEM, Identifier(TutorialMod.MOD_ID, name), item)
 
