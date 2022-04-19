@@ -3,6 +3,7 @@ package net.kaupenjoe.tutorialmod.block
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings
 import net.kaupenjoe.tutorialmod.TutorialMod
+import net.kaupenjoe.tutorialmod.block.custom.MythrilLampBlock
 import net.kaupenjoe.tutorialmod.block.custom.SpeedyBlock
 import net.kaupenjoe.tutorialmod.item.ModItemGroup
 import net.minecraft.block.*
@@ -124,6 +125,24 @@ object ModBlocks {
             LILAC_FLOWER,
             FabricBlockSettings.copy(Blocks.POTTED_ALLIUM).nonOpaque()
         )
+    )
+
+    val MYTHRIL_LAMP = registerBlock(
+        "mythril_lamp",
+        MythrilLampBlock(
+            FabricBlockSettings
+                .of(Material.METAL)
+                .strength(4.0f)
+                .requiresTool()
+                .luminance { state ->
+                    if (state.get(MythrilLampBlock.CLICKED)) {
+                        15
+                    } else {
+                        0
+                    }
+                }
+        ),
+        ModItemGroup.MYTHRIL
     )
 
     private fun registerBlockWithoutBlockItem(name: String, block: Block): Block {
