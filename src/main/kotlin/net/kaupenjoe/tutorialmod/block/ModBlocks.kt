@@ -3,6 +3,7 @@ package net.kaupenjoe.tutorialmod.block
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings
 import net.kaupenjoe.tutorialmod.TutorialMod
+import net.kaupenjoe.tutorialmod.block.custom.GrapeVineBlock
 import net.kaupenjoe.tutorialmod.block.custom.MythrilLampBlock
 import net.kaupenjoe.tutorialmod.block.custom.SpeedyBlock
 import net.kaupenjoe.tutorialmod.item.ModItemGroup
@@ -149,6 +150,11 @@ object ModBlocks {
         "winter_window",
         GlassBlock(FabricBlockSettings.copy(Blocks.GLASS).strength(3.0f).nonOpaque()),
         ModItemGroup.MYTHRIL
+    )
+
+    val GRAPE_VINE = registerBlockWithoutBlockItem(
+        "grape_vine",
+        GrapeVineBlock(FabricBlockSettings.copy(Blocks.WHEAT).nonOpaque())
     )
 
     private fun registerBlockWithoutBlockItem(name: String, block: Block): Block {

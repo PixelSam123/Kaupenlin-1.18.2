@@ -2,8 +2,10 @@ package net.kaupenjoe.tutorialmod.item
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings
 import net.kaupenjoe.tutorialmod.TutorialMod
+import net.kaupenjoe.tutorialmod.block.ModBlocks
 import net.kaupenjoe.tutorialmod.item.custom.*
 import net.minecraft.entity.EquipmentSlot
+import net.minecraft.item.AliasedBlockItem
 import net.minecraft.item.ArmorItem
 import net.minecraft.item.Item
 import net.minecraft.item.ShovelItem
@@ -114,6 +116,11 @@ object ModItems {
     val DATA_TABLET = registerItem(
         "data_tablet",
         DataTabletItem(FabricItemSettings().group(ModItemGroup.MYTHRIL).maxCount(1))
+    )
+
+    val GRAPE_SEEDS = registerItem(
+        "grape_seeds",
+        AliasedBlockItem(ModBlocks.GRAPE_VINE, FabricItemSettings().group(ModItemGroup.MYTHRIL))
     )
 
     private fun registerItem(name: String, item: Item): Item =
