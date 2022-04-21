@@ -1,6 +1,9 @@
 package net.kaupenjoe.tutorialmod.item.custom
 
+import net.kaupenjoe.tutorialmod.item.ModItems
 import net.kaupenjoe.tutorialmod.util.ModTags
+import net.kaupenjoe.tutorialmod.util.getFirstInventoryIndex
+import net.kaupenjoe.tutorialmod.util.hasStackInInventory
 import net.minecraft.block.Block
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.item.TooltipContext
@@ -8,6 +11,7 @@ import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.item.ItemUsageContext
+import net.minecraft.nbt.NbtCompound
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.text.TranslatableText
@@ -31,6 +35,11 @@ class DowsingRodItem(settings: Settings) : Item(settings) {
                     if (isValuableBlock(blockBelow)) {
                         outputValuableCoordinates(positionClicked.down(i), player, blockBelow)
                         foundBlock = true
+
+                        if (player.hasStackInInventory(ModItems.DATA_TABLET)) {
+                            addNbtToDataTablet(player, positionClicked.down(i), blockBelow)
+                        }
+
                         break
                     }
                 }
@@ -46,6 +55,18 @@ class DowsingRodItem(settings: Settings) : Item(settings) {
         }
 
         return super.useOnBlock(context)
+    }
+
+    private fun addNbtToDataTablet(player: PlayerEntity, pos: BlockPos, blockBelow: Block) {
+        val dataTablet = player.inventory.getStack(player.getFirstInventoryIndex(ModItems.DATA_TABLET))
+
+        val nbtData = NbtCompound()
+        nbtData.putString(
+            "tutorialmod.last_ore",
+            "Found ${blockBelow.asItem().name.string} at (${pos.x}, ${pos.y}, ${pos.z})"
+        )
+
+        dataTablet.nbt = nbtData
     }
 
     override fun appendTooltip(
