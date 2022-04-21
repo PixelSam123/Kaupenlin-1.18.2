@@ -145,6 +145,12 @@ object ModBlocks {
         ModItemGroup.MYTHRIL
     )
 
+    val WINTER_WINDOW = registerBlock(
+        "winter_window",
+        GlassBlock(FabricBlockSettings.copy(Blocks.GLASS).strength(3.0f).nonOpaque()),
+        ModItemGroup.MYTHRIL
+    )
+
     private fun registerBlockWithoutBlockItem(name: String, block: Block): Block {
         return Registry.register(Registry.BLOCK, Identifier(TutorialMod.MOD_ID, name), block)
     }
