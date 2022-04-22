@@ -7,6 +7,7 @@ import net.kaupenjoe.tutorialmod.item.custom.*
 import net.minecraft.entity.EquipmentSlot
 import net.minecraft.item.AliasedBlockItem
 import net.minecraft.item.ArmorItem
+import net.minecraft.item.BowItem
 import net.minecraft.item.Item
 import net.minecraft.item.ShovelItem
 import net.minecraft.util.Identifier
@@ -121,6 +122,11 @@ object ModItems {
     val GRAPE_SEEDS = registerItem(
         "grape_seeds",
         AliasedBlockItem(ModBlocks.GRAPE_VINE, FabricItemSettings().group(ModItemGroup.MYTHRIL))
+    )
+
+    val KAUPENBOW = registerItem(
+        "kaupenbow",
+        BowItem(FabricItemSettings().group(ModItemGroup.MYTHRIL).maxDamage(640))
     )
 
     private fun registerItem(name: String, item: Item): Item =
