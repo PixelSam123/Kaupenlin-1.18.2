@@ -11,11 +11,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable
 
 @Mixin(Entity::class)
 abstract class ModEntityDataSaver : IEntityDataSaver {
-    private var persistentData: NbtCompound? = null
+
+    override var persistentData: NbtCompound = NbtCompound()
 
     @Inject(method = ["writeNbt"], at = [At("HEAD")])
     fun injectWriteMethod(nbt: NbtCompound, info: CallbackInfoReturnable<NbtCompound>) {
-        if (persistentData != null) {
+        if (!persistentData.isEmpty) {
             nbt.put("tutorialmod.kaupen_data", persistentData)
         }
     }
@@ -27,11 +28,4 @@ abstract class ModEntityDataSaver : IEntityDataSaver {
         }
     }
 
-    override fun getPersistentData(): NbtCompound {
-        if (persistentData == null) {
-            persistentData = NbtCompound()
-        }
-
-        return persistentData as NbtCompound
-    }
 }
