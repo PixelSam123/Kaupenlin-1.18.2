@@ -159,6 +159,33 @@ object ModBlocks {
         GrapeVineBlock(FabricBlockSettings.copy(Blocks.WHEAT).nonOpaque())
     )
 
+    val JACARANDA_LOG = registerBlock(
+        "jacaranda_log",
+        PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG).strength(4.0f).requiresTool()),
+        ModItemGroup.MYTHRIL
+    )
+    val JACARANDA_WOOD = registerBlock(
+        "jacaranda_wood",
+        PillarBlock(FabricBlockSettings.copy(Blocks.OAK_WOOD).strength(4.0f).requiresTool()),
+        ModItemGroup.MYTHRIL
+    )
+    val STRIPPED_JACARANDA_LOG = registerBlock(
+        "stripped_jacaranda_log",
+        PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_LOG).strength(4.0f).requiresTool()),
+        ModItemGroup.MYTHRIL
+    )
+    val STRIPPED_JACARANDA_WOOD = registerBlock(
+        "stripped_jacaranda_wood",
+        PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_WOOD).strength(4.0f).requiresTool()),
+        ModItemGroup.MYTHRIL
+    )
+
+    val JACARANDA_PLANKS = registerBlock(
+        "jacaranda_planks",
+        Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS).strength(4.0f).requiresTool()),
+        ModItemGroup.MYTHRIL
+    )
+
     private fun registerBlockWithoutBlockItem(name: String, block: Block): Block {
         return Registry.register(Registry.BLOCK, Identifier(TutorialMod.MOD_ID, name), block)
     }
