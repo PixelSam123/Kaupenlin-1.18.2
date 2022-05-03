@@ -15,6 +15,8 @@ object ModSounds {
     val MYTHRIL_LAMP_HIT = registerSoundEvent("mythril_lamp_hit")
     val MYTHRIL_LAMP_FALL = registerSoundEvent("mythril_lamp_fall")
 
+    val BAR_BRAWL = registerSoundEvent("bar_brawl")
+
     val MYTHRIL_SOUNDS = BlockSoundGroup(
         1f,
         1f,

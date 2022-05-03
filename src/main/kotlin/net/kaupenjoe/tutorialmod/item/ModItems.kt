@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings
 import net.kaupenjoe.tutorialmod.TutorialMod
 import net.kaupenjoe.tutorialmod.block.ModBlocks
 import net.kaupenjoe.tutorialmod.item.custom.*
+import net.kaupenjoe.tutorialmod.sound.ModSounds
 import net.minecraft.entity.EquipmentSlot
 import net.minecraft.item.AliasedBlockItem
 import net.minecraft.item.ArmorItem
@@ -127,6 +128,15 @@ object ModItems {
     val KAUPENBOW = registerItem(
         "kaupenbow",
         BowItem(FabricItemSettings().group(ModItemGroup.MYTHRIL).maxDamage(640))
+    )
+
+    val BAR_BRAWL_MUSIC_DISC = registerItem(
+        "bar_brawl_music_disc",
+        ModMusicDiscItem(
+            7,
+            ModSounds.BAR_BRAWL,
+            FabricItemSettings().group(ModItemGroup.MYTHRIL).maxCount(1)
+        )
     )
 
     private fun registerItem(name: String, item: Item): Item =
