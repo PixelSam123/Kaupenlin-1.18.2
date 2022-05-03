@@ -7,6 +7,7 @@ import net.kaupenjoe.tutorialmod.block.custom.GrapeVineBlock
 import net.kaupenjoe.tutorialmod.block.custom.MythrilLampBlock
 import net.kaupenjoe.tutorialmod.block.custom.SpeedyBlock
 import net.kaupenjoe.tutorialmod.item.ModItemGroup
+import net.kaupenjoe.tutorialmod.sound.ModSounds
 import net.minecraft.block.*
 import net.minecraft.client.item.TooltipContext
 import net.minecraft.entity.effect.StatusEffects
@@ -142,6 +143,7 @@ object ModBlocks {
                         0
                     }
                 }
+                .sounds(ModSounds.MYTHRIL_SOUNDS)
         ),
         ModItemGroup.MYTHRIL
     )
