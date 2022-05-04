@@ -8,6 +8,7 @@ import net.kaupenjoe.tutorialmod.block.custom.MythrilLampBlock
 import net.kaupenjoe.tutorialmod.block.custom.SpeedyBlock
 import net.kaupenjoe.tutorialmod.item.ModItemGroup
 import net.kaupenjoe.tutorialmod.sound.ModSounds
+import net.kaupenjoe.tutorialmod.world.feature.tree.JacarandaSaplingGenerator
 import net.minecraft.block.*
 import net.minecraft.client.item.TooltipContext
 import net.minecraft.entity.effect.StatusEffects
@@ -183,6 +184,18 @@ object ModBlocks {
     val JACARANDA_PLANKS = registerBlock(
         "jacaranda_planks",
         Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS).strength(4.0f).requiresTool()),
+        ModItemGroup.MYTHRIL
+    )
+
+    val JACARANDA_LEAVES = registerBlock(
+        "jacaranda_leaves",
+        LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES).nonOpaque()),
+        ModItemGroup.MYTHRIL
+    )
+
+    val JACARANDA_SAPLING = registerBlock(
+        "jacaranda_sapling",
+        SaplingBlock(JacarandaSaplingGenerator(), FabricBlockSettings.copy(Blocks.OAK_SAPLING)),
         ModItemGroup.MYTHRIL
     )
 

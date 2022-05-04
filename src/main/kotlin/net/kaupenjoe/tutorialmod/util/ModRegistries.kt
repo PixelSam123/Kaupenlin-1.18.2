@@ -46,6 +46,7 @@ object ModRegistries {
         instance.add(ModBlocks.JACARANDA_WOOD, 5, 5)
         instance.add(ModBlocks.STRIPPED_JACARANDA_WOOD, 5, 5)
         instance.add(ModBlocks.JACARANDA_PLANKS, 5, 20)
+        instance.add(ModBlocks.JACARANDA_LEAVES, 30, 60)
     }
 
     private fun registerEvents() {
