@@ -4,6 +4,9 @@ import net.minecraft.util.registry.RegistryEntry
 import net.minecraft.world.gen.feature.PlacedFeature
 import net.minecraft.world.gen.feature.PlacedFeatures
 import net.minecraft.world.gen.feature.VegetationPlacedFeatures
+import net.minecraft.world.gen.placementmodifier.BiomePlacementModifier
+import net.minecraft.world.gen.placementmodifier.RarityFilterPlacementModifier
+import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier
 
 object ModPlacedFeatures {
     val JACARANDA_PLACED: RegistryEntry<PlacedFeature> = PlacedFeatures.register(
@@ -12,5 +15,14 @@ object ModPlacedFeatures {
         VegetationPlacedFeatures.modifiers(
             PlacedFeatures.createCountExtraModifier(1, 0.1f, 2)
         )
+    )
+
+    val LILAC_PLACED: RegistryEntry<PlacedFeature> = PlacedFeatures.register(
+        "lilac_placed",
+        ModConfiguredFeatures.LILAC_FLOWER,
+        RarityFilterPlacementModifier.of(4),
+        SquarePlacementModifier.of(),
+        PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
+        BiomePlacementModifier.of()
     )
 }

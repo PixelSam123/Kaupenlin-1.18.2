@@ -35,6 +35,18 @@ object ModConfiguredFeatures {
         RandomFeatureConfig(listOf(RandomFeatureEntry(JACARANDA_CHECKED, 0.5f)), JACARANDA_CHECKED)
     )
 
+    val LILAC_FLOWER: RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, *>> = ConfiguredFeatures.register(
+        "lilac_flower",
+        Feature.FLOWER,
+        ConfiguredFeatures.createRandomPatchFeatureConfig(
+            64,
+            PlacedFeatures.createEntry(
+                Feature.SIMPLE_BLOCK,
+                SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.LILAC_FLOWER))
+            )
+        )
+    )
+
     fun registerConfiguredFeatures() {
         TutorialMod.LOGGER.info("Registering ModConfiguredFeatures for ${TutorialMod.MOD_ID}")
     }
