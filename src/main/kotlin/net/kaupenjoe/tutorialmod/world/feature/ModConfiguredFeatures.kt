@@ -47,6 +47,23 @@ object ModConfiguredFeatures {
         )
     )
 
+    val OVERWORLD_MYTHRIL_ORES = listOf(
+        OreFeatureConfig.createTarget(
+            OreConfiguredFeatures.STONE_ORE_REPLACEABLES,
+            ModBlocks.MYTHRIL_ORE.defaultState
+        ),
+        OreFeatureConfig.createTarget(
+            OreConfiguredFeatures.DEEPSLATE_ORE_REPLACEABLES,
+            ModBlocks.DEEPSLATE_MYTHRIL_ORE.defaultState
+        )
+    )
+
+    val MYTHRIL_ORE: RegistryEntry<ConfiguredFeature<OreFeatureConfig, *>> = ConfiguredFeatures.register(
+        "mythril_ore",
+        Feature.ORE,
+        OreFeatureConfig(OVERWORLD_MYTHRIL_ORES, 9)
+    )
+
     fun registerConfiguredFeatures() {
         TutorialMod.LOGGER.info("Registering ModConfiguredFeatures for ${TutorialMod.MOD_ID}")
     }
