@@ -48,10 +48,11 @@ class DowsingRodItem(settings: Settings) : Item(settings) {
                     player.sendMessage(TranslatableText("item.tutorialmod.dowsing_rod.no_valuables"), false)
                 }
 
-                context.stack.damage(1, player) { plyr ->
-                    plyr.sendToolBreakStatus(player.activeHand)
-                }
             }
+        }
+
+        context.stack.damage(1, context.player) { plyr ->
+            plyr?.sendToolBreakStatus(plyr.activeHand)
         }
 
         return super.useOnBlock(context)
