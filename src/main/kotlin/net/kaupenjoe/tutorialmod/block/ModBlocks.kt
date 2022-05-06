@@ -19,6 +19,7 @@ import net.minecraft.item.ItemStack
 import net.minecraft.text.Text
 import net.minecraft.text.TranslatableText
 import net.minecraft.util.Identifier
+import net.minecraft.util.math.intprovider.UniformIntProvider
 import net.minecraft.util.registry.Registry
 import net.minecraft.world.World
 
@@ -32,7 +33,11 @@ object ModBlocks {
 
     val MYTHRIL_ORE = registerBlock(
         "mythril_ore",
-        Block(FabricBlockSettings.of(Material.STONE).strength(4.5f).requiresTool()), ModItemGroup.MYTHRIL
+        OreBlock(
+            FabricBlockSettings.of(Material.STONE).strength(4.5f).requiresTool(),
+            UniformIntProvider.create(2, 6)
+        ),
+        ModItemGroup.MYTHRIL
     )
 
     val DEEPSLATE_MYTHRIL_ORE = registerBlock(
