@@ -139,6 +139,11 @@ object ModItems {
         )
     )
 
+    val MYTHRIL_STAFF = registerItem(
+        "mythril_staff",
+        Item(FabricItemSettings().group(ModItemGroup.MYTHRIL).maxCount(1))
+    )
+
     private fun registerItem(name: String, item: Item): Item =
         Registry.register(Registry.ITEM, Identifier(TutorialMod.MOD_ID, name), item)
 
