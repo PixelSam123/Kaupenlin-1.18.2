@@ -2,6 +2,7 @@ package net.kaupenjoe.tutorialmod.util
 
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback
 import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents
+import net.fabricmc.fabric.api.`object`.builder.v1.trade.TradeOfferHelper
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry
 import net.fabricmc.fabric.api.registry.FuelRegistry
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry
@@ -11,6 +12,10 @@ import net.kaupenjoe.tutorialmod.command.ReturnHomeCommand
 import net.kaupenjoe.tutorialmod.command.SetHomeCommand
 import net.kaupenjoe.tutorialmod.event.ModPlayerEventCopyFrom
 import net.kaupenjoe.tutorialmod.item.ModItems
+import net.minecraft.item.ItemStack
+import net.minecraft.item.Items
+import net.minecraft.village.TradeOffer
+import net.minecraft.village.VillagerProfession
 
 object ModRegistries {
     fun registerModStuffs() {
@@ -19,6 +24,7 @@ object ModRegistries {
         registerEvents()
         registerStrippables()
         registerFlammableBlock()
+        registerCustomTrades()
     }
 
     private fun registerFuels() {
@@ -51,5 +57,31 @@ object ModRegistries {
 
     private fun registerEvents() {
         ServerPlayerEvents.COPY_FROM.register(ModPlayerEventCopyFrom())
+    }
+
+    private fun registerCustomTrades() {
+        TradeOfferHelper.registerVillagerOffers(VillagerProfession.FARMER, 1) { factories ->
+            factories.add { _, _ ->
+                TradeOffer(
+                    ItemStack(Items.EMERALD, 2),
+                    ItemStack(ModItems.GRAPE, 12),
+                    6,
+                    2,
+                    0.02f
+                )
+            }
+        }
+
+        TradeOfferHelper.registerVillagerOffers(VillagerProfession.TOOLSMITH, 3) { factories ->
+            factories.add { _, _ ->
+                TradeOffer(
+                    ItemStack(Items.EMERALD, 6),
+                    ItemStack(ModItems.MYTHRIL_PICKAXE, 1),
+                    12,
+                    7,
+                    0.08f
+                )
+            }
+        }
     }
 }
