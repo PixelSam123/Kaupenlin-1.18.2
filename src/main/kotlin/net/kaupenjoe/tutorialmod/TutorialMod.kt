@@ -5,6 +5,7 @@ import net.kaupenjoe.tutorialmod.block.ModBlocks
 import net.kaupenjoe.tutorialmod.effect.ModEffects
 import net.kaupenjoe.tutorialmod.item.ModItems
 import net.kaupenjoe.tutorialmod.painting.ModPaintings
+import net.kaupenjoe.tutorialmod.potion.ModPotions
 import net.kaupenjoe.tutorialmod.util.ModLootTableModifiers
 import net.kaupenjoe.tutorialmod.util.ModRegistries
 import net.kaupenjoe.tutorialmod.world.feature.ModConfiguredFeatures
@@ -27,5 +28,6 @@ class TutorialMod : ModInitializer {
         ModWorldGen.generateModWorldGen()
         ModLootTableModifiers.modifyLootTables()
         ModEffects.registerEffects()
+        ModPotions.registerPotions()
     }
 }
