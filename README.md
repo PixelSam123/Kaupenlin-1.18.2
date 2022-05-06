@@ -4,10 +4,6 @@ Kaupenjoe's 1.18.1-1.18.2 Fabric Tutorial, but in Kotlin!
 Coding style is currently not fully idiomatic Kotlin (I'm trying to keep it close to the original code) but this might
 change in the future.
 
-## Things that do not work
-
-- Dowsing rod durability reduction
-
 ---
 
 ## Setup
